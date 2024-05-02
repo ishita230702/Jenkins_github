@@ -31,7 +31,7 @@ pipeline{
             }
         }
     }
-         stage("Security scan"){
+         stage('Security scan'){
             steps{
                 echo "Analysing code..."
                 echo "Security scan tool: Checkmarx"
