@@ -42,6 +42,7 @@ pipeline{
                 echo "code analysis tool: SonarQube"
                 echo "Done!!!"
             }
+        }
         stage('Security scan'){
             steps{
                 echo "Analysing code..."
