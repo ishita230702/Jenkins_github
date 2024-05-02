@@ -12,7 +12,8 @@ pipeline{
                 echo "Build the code using Maven"
             }
         }
-         stage('Unit and Integration Tests') {
+    
+        stage('Unit and Integration Tests') {
             steps {
                 echo "Run unit tests using JUnit"
                 echo "Run integration tests using Selenium"
@@ -30,12 +31,7 @@ pipeline{
                 }
             }
         }
-        stage('Code Analysis'){
-            steps{
-                echo "Analysing code..."
-                echo "Security scan tool: Checkmarx"
-            }
-        }
+        
         stage('Security scan'){
             steps{
                 echo "Analysing code..."
@@ -72,8 +68,3 @@ pipeline{
         }       
     }     
 }
-    
-       
-
-        
-        
