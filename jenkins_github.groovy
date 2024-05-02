@@ -48,6 +48,7 @@ pipeline{
                         body:"Security Scan stage FAILURE!"
             }
          }
+         }
              stage('Deploy to Staging') {
             steps {
                 echo "deploy the application t"
