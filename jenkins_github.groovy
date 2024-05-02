@@ -30,6 +30,12 @@ pipeline{
                 }
             }
         }
+        stage('Code Analysis'){
+            steps{
+                echo "Analysing code..."
+                echo "Security scan tool: Checkmarx"
+            }
+        }
         stage('Security scan'){
             steps{
                 echo "Analysing code..."
