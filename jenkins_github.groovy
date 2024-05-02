@@ -12,8 +12,7 @@ pipeline{
                 echo "Build the code using Maven"
             }
         }
-    
-        stage('Unit and Integration Tests') {
+    stage('Unit and Integration Tests') {
             steps {
                 echo "Run unit tests using JUnit"
                 echo "Run integration tests using Selenium"
@@ -37,7 +36,7 @@ pipeline{
                 }
             }
         }
-          stage('Code Quality Check'){
+        stage('Code Quality Check'){
             steps{
                 echo "checking the quality of the code"
                 echo "code analysis tool: SonarQube"
