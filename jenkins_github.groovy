@@ -21,7 +21,7 @@ pipeline{
             post{
                 success{
                      emailext(
-                        to: 'daezelgoyal01@gmail.com',
+                        to: 'ishu.g230702@gmail.com',
                         subject: 'Security Scan',
                         body: 'Security Scan Tests successfuly completed', 
                         attachLog: true
@@ -29,7 +29,7 @@ pipeline{
                 }
                 failure{
                     emailext(
-                        to: 'daezelgoyal01@gmail.com',
+                        to: 'ishu.g230702@gmail.com',
                         subject: 'Security Scan',
                         body: 'Security Scan Tests successfuly completed', 
                         attachLog: true
@@ -37,15 +37,22 @@ pipeline{
                 }
             }
         }
+          stage('Code Quality Check'){
+            steps{
+                echo "checking the quality of the code"
+                echo "code analysis tool: SonarQube"
+                echo "Done!!!"
+            }
         stage('Security scan'){
             steps{
                 echo "Analysing code..."
                 echo "Security scan tool: Checkmarx"
             }
+        }
             post{
                 success{
                    emailext(
-                        to: 'daezelgoyal01@gmail.com',
+                        to: 'ishu.g230702@gmail.com',
                         subject: 'Security Scan',
                         body: 'Security Scan Tests successfuly completed', 
                         attachLog: true
@@ -53,7 +60,7 @@ pipeline{
                 }
                 failure{
                    emailext(
-                        to: 'daezelgoyal01@gmail.com',
+                        to: 'ishu.g230702@gmail.com',
                         subject: 'Security Scan',
                         body: 'Security Scan Tests successfuly completed', 
                         attachLog: true
