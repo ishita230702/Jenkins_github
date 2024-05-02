@@ -19,20 +19,16 @@ pipeline{
             }
             post{
                 success{
-                     emailext(
-                        to: 'ishu.g230702@gmail.com',
-                        subject: 'Security Scan',
-                        body: 'Security Scan Tests successfuly completed', 
-                        attachLog: true
-                    )
+                    mail to: 'ishu.g230702@gmail.com',
+                    subject: 'Security Scan Successful',
+                    body: 'Security Scan tests completed successfully. No issues found.',
+                    attachmentsPattern: 'build.log'
                 }
                 failure{
-                    emailext(
-                        to: 'ishu.g230702@gmail.com',
-                        subject: 'Security Scan',
-                        body: 'Security Scan Tests successfuly completed', 
-                        attachLog: true
-                    )
+                    mail to: 'ishu.g230702@gmail.com',
+                    subject: 'Security Scan Successful',
+                    body: 'Security Scan tests completed successfully. No issues found.',
+                    attachmentsPattern: 'build.log'
                 }
             }
         }
@@ -50,20 +46,16 @@ pipeline{
             }
             post{
                 success{
-                   emailext(
-                        to: 'ishu.g230702@gmail.com',
-                        subject: 'Security Scan',
-                        body: 'Security Scan Tests successfuly completed', 
-                        attachLog: true
-                    )
+                   mail to: 'ishu.g230702@gmail.com',
+                    subject: 'Security Scan Successful',
+                    body: 'Security Scan tests completed successfully. No issues found.',
+                    attachmentsPattern: 'build.log'
                 }
                 failure{
-                   emailext(
-                        to: 'ishu.g230702@gmail.com',
-                        subject: 'Security Scan',
-                        body: 'Security Scan Tests successfuly completed', 
-                        attachLog: true
-                    )
+                  mail to: 'ishu.g230702@gmail.com',
+                    subject: 'Security Scan Successful',
+                    body: 'Security Scan tests completed successfully. No issues found.',
+                    attachmentsPattern: 'build.log'
                 }
             }
         }
