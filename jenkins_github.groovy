@@ -12,25 +12,26 @@ pipeline{
                 echo "Build the code using Maven"
             }
         }
-        stage('Unit and Integration Tests') {
-            steps {
-                echo "Run unit tests using JUnit"
-                echo "Run integration tests using Selenium"
-            }
-            post{
-                success{
-                    mail to:"ishu.g230702@gmail.com",
-                        subject:"Unit and Integration Test Status email",
-                        body:"Unit and Integration tests stage was successful!"
+    }
+    stage('Unit and Integration Tests') {
+        steps {
+            echo "Run unit tests using JUnit"
+            echo "Run integration tests using Selenium"
+        }
+        post{
+            success{
+                mail to:"ishu.g230702@gmail.com",
+                    subject:"Unit and Integration Test Status email",
+                    body:"Unit and Integration tests stage was successful!"
                 }
                  failure{
                      mail to:"ishu.g230702@gmail.com",
                         subject:"Unit and Integration Test Status email",
                         body:"Unit and Integration tests stage FAILURE!"
-                }
-            }
+                 }
         }
     }
+    
     stage('Security scan'){
         steps{
             echo "Analysing code..."
