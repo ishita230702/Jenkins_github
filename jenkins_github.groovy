@@ -65,6 +65,7 @@ pipeline{
             steps{
                 echo "Deployment to AWS EC2. Started and completed!"
             }
-        }       
-    }     
-}
+        }
+    }
+}    
+
