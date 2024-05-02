@@ -9,7 +9,7 @@ pipeline{
         stage('Build'){
             steps{
                 echo "fetch the source code from ${DIRECTORY_PATH}"
-                echo "compile the code and generate any necessary artifacts"
+                echo "Build the code using Maven"
             }
             post{
                 success{
