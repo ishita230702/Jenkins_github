@@ -48,7 +48,6 @@ pipeline{
                 echo "Analysing code..."
                 echo "Security scan tool: Checkmarx"
             }
-        }
             post{
                 success{
                    emailext(
@@ -67,6 +66,7 @@ pipeline{
                     )
                 }
             }
+        }
         stage('Deploy to Staging') {
             steps {
                 echo "deploy the application t"
