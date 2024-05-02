@@ -46,8 +46,8 @@ pipeline{
                    mail to:"ishu.g230702@gmail.com",
                        subject:"Security scan Status email",
                         body:"Security Scan stage FAILURE!"
-            }
-         }
+                 }
+             }
          }
              stage('Deploy to Staging') {
             steps {
