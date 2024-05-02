@@ -67,7 +67,6 @@ pipeline{
                     )
                 }
             }
-        }
         stage('Deploy to Staging') {
             steps {
                 echo "deploy the application t"
@@ -85,4 +84,4 @@ pipeline{
             }
         }
     }
-}    
+}
