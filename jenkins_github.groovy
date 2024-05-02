@@ -30,7 +30,6 @@ pipeline{
                 }
             }
         }
-        
         stage('Security scan'){
             steps{
                 echo "Analysing code..."
@@ -69,3 +68,6 @@ pipeline{
 }
     
        
+
+        
+        
