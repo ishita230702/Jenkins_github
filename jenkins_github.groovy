@@ -17,18 +17,24 @@ pipeline{
                 echo "Run unit tests using JUnit"
                 echo "Run integration tests using Selenium"
             }
-            post{
-                success{
+            post {
+                success {
+                    // Archive build log
+                    archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
+                    // Send email notification with build log attached
                     mail to: 'ishu.g230702@gmail.com',
                     subject: 'Security Scan Successful',
                     body: 'Security Scan tests completed successfully. No issues found.',
-                    attachmentsPattern: 'build.log'
+                    attachments: [file: "${JENKINS_HOME}/workspace/${JOB_NAME}/build.log"]
                 }
-                failure{
+                failure {
+                    // Archive build log
+                   archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
+                    // Send email notification with build log attached
                     mail to: 'ishu.g230702@gmail.com',
-                    subject: 'Security Scan Successful',
-                    body: 'Security Scan tests completed successfully. No issues found.',
-                    attachmentsPattern: 'build.log'
+                    subject: 'Security Scan Failed',
+                    body: 'Security Scan tests failed. Review the logs for more details.',
+                    attachments: [file: "${JENKINS_HOME}/workspace/${JOB_NAME}/build.log"]
                 }
             }
         }
@@ -44,18 +50,24 @@ pipeline{
                 echo "Analysing code..."
                 echo "Security scan tool: Checkmarx"
             }
-            post{
-                success{
-                   mail to: 'ishu.g230702@gmail.com',
+            post {
+                success {
+                    // Archive build log
+                    archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
+                    // Send email notification with build log attached
+                    mail to: 'ishu.g230702@gmail.com',
                     subject: 'Security Scan Successful',
                     body: 'Security Scan tests completed successfully. No issues found.',
-                    attachmentsPattern: 'build.log'
+                    attachments: [file: "${JENKINS_HOME}/workspace/${JOB_NAME}/build.log"]
                 }
-                failure{
-                  mail to: 'ishu.g230702@gmail.com',
-                    subject: 'Security Scan Successful',
-                    body: 'Security Scan tests completed successfully. No issues found.',
-                    attachmentsPattern: 'build.log'
+                failure {
+                    // Archive build log
+                   archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
+                    // Send email notification with build log attached
+                    mail to: 'ishu.g230702@gmail.com',
+                    subject: 'Security Scan Failed',
+                    body: 'Security Scan tests failed. Review the logs for more details.',
+                    attachments: [file: "${JENKINS_HOME}/workspace/${JOB_NAME}/build.log"]
                 }
             }
         }
@@ -77,3 +89,5 @@ pipeline{
         }
     }
 }
+
+            
