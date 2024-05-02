@@ -20,17 +20,22 @@ pipeline{
             }
             post{
                 success{
-                    mail to:"ishu.g230702@gmail.com",
-                    subject:"Unit and Integration Test Status email",
-                    body:"Unit and Integration tests stage was successful!"
+                     emailext(
+                        to: 'daezelgoyal01@gmail.com',
+                        subject: 'Security Scan',
+                        body: 'Security Scan Tests successfuly completed', 
+                        attachLog: true
+                    )
                 }
                 failure{
-                    mail to:"ishu.g230702@gmail.com",
-                    subject:"Unit and Integration Test Status email",
-                    body:"Unit and Integration tests stage FAILURE!"
+                    emailext(
+                        to: 'daezelgoyal01@gmail.com',
+                        subject: 'Security Scan',
+                        body: 'Security Scan Tests successfuly completed', 
+                        attachLog: true
+                    )
                 }
             }
-        }
         
         stage('Security scan'){
             steps{
@@ -39,14 +44,20 @@ pipeline{
             }
             post{
                 success{
-                    mail to:"ishu.g230702@gmail.com",
-                    subject:"Security scan Status email",
-                    body:"Security Scan stage was successful!"
+                   emailext(
+                        to: 'daezelgoyal01@gmail.com',
+                        subject: 'Security Scan',
+                        body: 'Security Scan Tests successfuly completed', 
+                        attachLog: true
+                    )
                 }
                 failure{
-                    mail to:"ishu.g230702@gmail.com",
-                    subject:"Security scan Status email",
-                    body:"Security Scan stage FAILURE!"
+                   emailext(
+                        to: 'daezelgoyal01@gmail.com',
+                        subject: 'Security Scan',
+                        body: 'Security Scan Tests successfuly completed', 
+                        attachLog: true
+                    )
                 }
             }
         }
