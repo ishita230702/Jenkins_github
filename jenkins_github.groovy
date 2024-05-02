@@ -31,21 +31,21 @@ pipeline{
             }
         }
     }
-         stage('Security scan'){
-            steps{
-                echo "Analysing code..."
-                echo "Security scan tool: Checkmarx"
+    stage('Security scan'){
+        steps{
+            echo "Analysing code..."
+            echo "Security scan tool: Checkmarx"
         }
-             post{
-                success{
-                    mail to:"ishu.g230702@gmail.com",
-                        subject:"Security scan Status email",
-                        body:"Security Scan stage was successful!"
+        post{
+            success{
+                mail to:"ishu.g230702@gmail.com",
+                    subject:"Security scan Status email",
+                    body:"Security Scan stage was successful!"
                 }
-                 failure{
-                   mail to:"ishu.g230702@gmail.com",
-                       subject:"Security scan Status email",
-                        body:"Security Scan stage FAILURE!"
+            failure{
+                 mail to:"ishu.g230702@gmail.com",
+                    subject:"Security scan Status email",
+                    body:"Security Scan stage FAILURE!"
                  }
              }
          }
