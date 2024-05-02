@@ -21,14 +21,14 @@ pipeline{
         post{
             success{
                 mail to:"ishu.g230702@gmail.com",
-                    subject:"Unit and Integration Test Status email",
-                    body:"Unit and Integration tests stage was successful!"
-                }
-                 failure{
-                     mail to:"ishu.g230702@gmail.com",
-                        subject:"Unit and Integration Test Status email",
-                        body:"Unit and Integration tests stage FAILURE!"
-                 }
+                subject:"Unit and Integration Test Status email",
+                body:"Unit and Integration tests stage was successful!"
+            }
+            failure{
+                mail to:"ishu.g230702@gmail.com",
+                subject:"Unit and Integration Test Status email",
+                body:"Unit and Integration tests stage FAILURE!"
+            }
         }
     }
     
@@ -40,31 +40,30 @@ pipeline{
         post{
             success{
                 mail to:"ishu.g230702@gmail.com",
-                    subject:"Security scan Status email",
-                    body:"Security Scan stage was successful!"
-                }
+                subject:"Security scan Status email",
+                body:"Security Scan stage was successful!"
+            }
             failure{
-                 mail to:"ishu.g230702@gmail.com",
-                    subject:"Security scan Status email",
-                    body:"Security Scan stage FAILURE!"
-                 }
-             }
-         }
-             stage('Deploy to Staging') {
-            steps {
-                echo "deploy the application t"
-                echo"Deploy tool: AWS EC2"
+                mail to:"ishu.g230702@gmail.com",
+                subject:"Security scan Status email",
+                body:"Security Scan stage FAILURE!"
             }
         }
-        stage('Integration Tests on Staging') {
-            steps {
-                echo "Run integration tests on the staging environment"
-            }
+    }
+    stage('Deploy to Staging') {
+        steps {
+            echo "deploy the application t"
+            echo"Deploy tool: AWS EC2"
         }
-        stage('Deploy to Production'){
-            steps{
-                echo "Deployment to AWS EC2. Started and completed!"
-            }
-        }        
-    }    
-
+    }
+    stage('Integration Tests on Staging') {
+        steps {
+            echo "Run integration tests on the staging environment"
+        }
+    }
+    stage('Deploy to Production'){
+        steps{
+            echo "Deployment to AWS EC2. Started and completed!"
+        }
+    }        
+}
