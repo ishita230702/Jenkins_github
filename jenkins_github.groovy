@@ -17,24 +17,6 @@ pipeline{
                 echo "Run unit tests using JUnit"
                 echo "Run integration tests using Selenium"
             }
-            post{
-                success{
-                    emailext(
-                        to:"ishu.g230702@gmail.com",
-                        subject:"Unit and Integration Test Status email",
-                        body:"Unit and Integration tests stage was successful!"
-                        attachLog: true
-                    )
-                }
-                failure{
-                    emailext(
-                        to:"ishu.g230702@gmail.com",
-                        subject:"Unit and Integration Test Status email",
-                        body:"Unit and Integration tests stage FAILURE!"
-                        attachLog: true
-                    )
-                }
-            }
         }
         stage('Security scan'){
             steps{
