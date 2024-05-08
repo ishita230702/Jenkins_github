@@ -19,14 +19,20 @@ pipeline{
             }
             post{
                 success{
-                    mail to:"ishu.g230702@gmail.com",
-                    subject:"Unit and Integration Test Status email",
-                    body:"Unit and Integration tests stage was successful!"
+                    emailext(
+                        mail to:"ishu.g230702@gmail.com",
+                        subject:"Unit and Integration Test Status email",
+                        body:"Unit and Integration tests stage was successful!"
+                        attachLog: true
+                        )
                 }
                 failure{
-                    mail to:"ishu.g230702@gmail.com",
-                    subject:"Unit and Integration Test Status email",
-                    body:"Unit and Integration tests stage FAILURE!"
+                    emailext(
+                        mail to:"ishu.g230702@gmail.com",
+                        subject:"Unit and Integration Test Status email",
+                        body:"Unit and Integration tests stage FAILURE!"
+                        attachLog: true
+                        )
                 }
             }
         }
@@ -37,14 +43,20 @@ pipeline{
             }
             post{
                 success{
-                    mail to:"ishu.g230702@gmail.com",
-                    subject:"Security scan Status email",
-                    body:"Security Scan stage was successful!"
+                    emailext(
+                        mail to:"ishu.g230702@gmail.com",
+                        subject:"Security scan Status email",
+                        body:"Security Scan stage was successful!"
+                        attachLog: true
+                        )
                 }
                 failure{
-                    mail to:"ishu.g230702@gmail.com",
-                    subject:"Security scan Status email",
-                    body:"Security Scan stage FAILURE!"
+                    emailext(
+                        mail to:"ishu.g230702@gmail.com",
+                        subject:"Security scan Status email",
+                        body:"Security Scan stage FAILURE!"
+                        attachLog: true
+                        )
                 }
             }
         }
