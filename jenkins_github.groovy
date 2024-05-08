@@ -17,32 +17,17 @@ pipeline{
                 echo "Run unit tests using JUnit"
                 echo "Run integration tests using Selenium"
             }
-            post {
-                success {
-                    // Archive build log
-                    archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
-                    // Send email notification with build log attached
-                    mail to: 'ishu.g230702@gmail.com',
-                    subject: 'Security Scan Successful',
-                    body: 'Security Scan tests completed successfully. No issues found.',
-                    attachments: [file: "${JENKINS_HOME}/workspace/${JOB_NAME}/build.log"]
+            post{
+                success{
+                    mail to:"ishu.g230702@gmail.com",
+                    subject:"Unit and Integration Test Status email",
+                    body:"Unit and Integration tests stage was successful!"
                 }
-                failure {
-                    // Archive build log
-                   archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
-                    // Send email notification with build log attached
-                    mail to: 'ishu.g230702@gmail.com',
-                    subject: 'Security Scan Failed',
-                    body: 'Security Scan tests failed. Review the logs for more details.',
-                    attachments: [file: "${JENKINS_HOME}/workspace/${JOB_NAME}/build.log"]
+                failure{
+                    mail to:"ishu.g230702@gmail.com",
+                    subject:"Unit and Integration Test Status email",
+                    body:"Unit and Integration tests stage FAILURE!"
                 }
-            }
-        }
-        stage('Code Quality Check'){
-            steps{
-                echo "checking the quality of the code"
-                echo "code analysis tool: SonarQube"
-                echo "Done!!!"
             }
         }
         stage('Security scan'){
@@ -50,24 +35,16 @@ pipeline{
                 echo "Analysing code..."
                 echo "Security scan tool: Checkmarx"
             }
-            post {
-                success {
-                    // Archive build log
-                    archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
-                    // Send email notification with build log attached
-                    mail to: 'ishu.g230702@gmail.com',
-                    subject: 'Security Scan Successful',
-                    body: 'Security Scan tests completed successfully. No issues found.',
-                    attachments: [file: "${JENKINS_HOME}/workspace/${JOB_NAME}/build.log"]
+            post{
+                success{
+                    mail to:"ishu.g230702@gmail.com",
+                    subject:"Security scan Status email",
+                    body:"Security Scan stage was successful!"
                 }
-                failure {
-                    // Archive build log
-                   archiveArtifacts artifacts: 'build.log', onlyIfSuccessful: true
-                    // Send email notification with build log attached
-                    mail to: 'ishu.g230702@gmail.com',
-                    subject: 'Security Scan Failed',
-                    body: 'Security Scan tests failed. Review the logs for more details.',
-                    attachments: [file: "${JENKINS_HOME}/workspace/${JOB_NAME}/build.log"]
+                failure{
+                    mail to:"ishu.g230702@gmail.com",
+                    subject:"Security scan Status email",
+                    body:"Security Scan stage FAILURE!"
                 }
             }
         }
@@ -86,8 +63,8 @@ pipeline{
             steps{
                 echo "Deployment to AWS EC2. Started and completed!"
             }
-        }
-    }
+        }       
+    }     
 }
 
             
