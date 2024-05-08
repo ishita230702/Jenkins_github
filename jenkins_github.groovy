@@ -24,7 +24,7 @@ pipeline{
                         subject:"Unit and Integration Test Status email",
                         body:"Unit and Integration tests stage was successful!"
                         attachLog: true
-                        )
+                    )
                 }
                 failure{
                     emailext(
@@ -32,7 +32,7 @@ pipeline{
                         subject:"Unit and Integration Test Status email",
                         body:"Unit and Integration tests stage FAILURE!"
                         attachLog: true
-                        )
+                    )
                 }
             }
         }
@@ -48,7 +48,7 @@ pipeline{
                         subject:"Security scan Status email",
                         body:"Security Scan stage was successful!"
                         attachLog: true
-                        )
+                    )
                 }
                 failure{
                     emailext(
@@ -56,7 +56,7 @@ pipeline{
                         subject:"Security scan Status email",
                         body:"Security Scan stage FAILURE!"
                         attachLog: true
-                        )
+                    )
                 }
             }
         }
