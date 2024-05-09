@@ -36,10 +36,16 @@ pipeline{
                 }
             }
         }
+        stage('Code Analysis') {
+            steps {
+                echo "Analyse the code"
+                echo"Code analyse tool:-SonarQube"
+            }
+        }
         stage('Security scan'){
             steps{
-                echo "Analysing code..."
-                echo "Security scan tool: Checkmarx"
+                echo "Scanning for security..."
+                echo "Security scan tool: Qualys"
             }
             post{
                 success{
